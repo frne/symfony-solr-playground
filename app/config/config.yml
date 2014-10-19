@@ -70,3 +70,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fs_solr:
+  endpoints:
+    default:
+      host: localhost
+      port: 8983
+      path: /solr/
+      core: symfony_playground
+      timeout: 5
+  clients:
+    default:
+      endpoints: [default]

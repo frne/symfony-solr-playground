@@ -1,0 +1,4 @@
+frne_symfony_playground:
+    resource: "@FrneSymfonyPlaygroundBundle/Resources/config/routing.xml"
+    prefix:   /
+
