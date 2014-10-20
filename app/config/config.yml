@@ -77,7 +77,7 @@ fs_solr:
       host: localhost
       port: 8983
       path: /solr/
-      core: symfony_playground
+      core: collection-symfony-1
       timeout: 5
   clients:
     default:

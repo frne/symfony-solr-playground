@@ -11,7 +11,7 @@ An example playground project to demonstrate usage of [Apache Solr](http://lucen
 
 ## Installation
 
-*1.) Clone this repository and install deps via composer*
+**1.) Clone this repository and install deps via composer**
 
 ```bash
 git clone git@github.com:frne/symfony-solr-playground.git
@@ -19,20 +19,18 @@ cd symfony-solr-playground
 composer.phar install
 php app/console cache:clear
 ```
-*2.) Install solr (4.x)*
 
-On OSX, you need also ```greadlink```. You can install it using homebrew:
+**3.) Run solr using this configuration**
+
+We run solr in foreground using the option ```-f``` , so we can see what it's up to... 
+
 ```bash
-brew install coreutils solr
+solr/bin/solr start -f
 ```
 
-On Linux-based 
+Hit ctrl+c to stop the server...
 
-*3.) Run solr using this configuration*
-```bash
-solr `greadlink -f ./solr`
-```
-*4.) Generate some data using fixtures*
+**4.) Generate some data using fixtures**
 
 ```bash
 php app/console doctrine:fixtures:load
