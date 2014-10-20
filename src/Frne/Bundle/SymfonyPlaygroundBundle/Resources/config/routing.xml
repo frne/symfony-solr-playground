@@ -4,7 +4,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="frne_symfony_playground_homepage" path="/">
+    <route id="home" path="/">
         <default key="_controller">FrneSymfonyPlaygroundBundle:Default:index</default>
+    </route>
+    <route id="search_index" path="/search">
+        <default key="_controller">FrneSymfonyPlaygroundBundle:Search:index</default>
     </route>
 </routes>

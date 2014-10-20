@@ -10,7 +10,7 @@ use Faker\Factory;
 
 class LoadArticleData implements FixtureInterface
 {
-    const NUM_ARTICLES_TO_GENERATE = 1000;
+    const NUM_ARTICLES_TO_GENERATE = 10000;
 
     /**
      * {@inheritDoc}
@@ -28,8 +28,9 @@ class LoadArticleData implements FixtureInterface
 
             $manager->persist($article);
 
-            if($i % 10 == 0) {
+            if($i % 100 == 0) {
                 $manager->flush();
+                echo '.';
             }
         }
 
