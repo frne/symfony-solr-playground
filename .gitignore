@@ -10,7 +10,7 @@
 /bin/
 /composer.phar
 
-/solr/example/example-schemaless/solr/collection-symfony-1/data/*
-!/solr/example/example-schemaless/solr/collection-symfony-1/data/.gitkeep
+/solr/example/solr/collection-symfony-1/data/*
+!/solr/example/solr/collection-symfony-1/data/.gitkeep
 /solr/example/logs/*
 !/solr/example/logs/.gitkeep
