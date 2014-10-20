@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "nelmio/solarium-bundle": "~2.0",
+        "symfony/icu": "~1.0",
+	    "nelmio/solarium-bundle": "~2.0",
         "floriansemm/solr-bundle": "~1.1",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "fzaninotto/faker": "1.4.0"
