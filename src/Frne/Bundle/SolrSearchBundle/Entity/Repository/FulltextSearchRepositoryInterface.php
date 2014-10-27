@@ -5,7 +5,7 @@ namespace Frne\Bundle\SolrSearchBundle\Entity\Repository;
 interface FulltextSearchRepositoryInterface
 {
     /**
-     * Returns a list of entities found using a fulltext-search
+     * Returns a list of entities using a fulltext-search
      *
      * @param string $search
      * @param int $limit
