@@ -1,16 +1,28 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="frne_symfony_playground.example" class="Frne\Bundle\SymfonyPlaygroundBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="doctrine.repository.article"
+                 class="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Doctrine\ArticleRepository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository">
+            <argument>FrneSymfonyPlaygroundBundle:Article</argument>
+        </service>
+
+        <service id="solr.repository.article"
+                 class="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ArticleRepository">
+            <argument type="service" id="solarium.client.default"/>
+        </service>
+
+        <service id="solr.repository.product"
+                 class="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ProductRepository"
+                 factory-service="solr.client.default"
+                 factory-method="getRepository">
+            <argument>FrneSymfonyPlaygroundBundle:Product</argument>
         </service>
     </services>
-    -->
+
 </container>

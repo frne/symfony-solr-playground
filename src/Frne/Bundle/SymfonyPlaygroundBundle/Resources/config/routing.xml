@@ -8,6 +8,9 @@
         <default key="_controller">FrneSymfonyPlaygroundBundle:Default:index</default>
     </route>
     <route id="search_index" path="/search">
-        <default key="_controller">FrneSymfonyPlaygroundBundle:Search:index</default>
+        <default key="_controller">FrneSymfonyPlaygroundBundle:FulltextSearch:index</default>
+    </route>
+    <route id="search_hydration" path="/search/hydrate">
+        <default key="_controller">FrneSymfonyPlaygroundBundle:HydratingSearch:index</default>
     </route>
 </routes>

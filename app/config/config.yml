@@ -72,13 +72,25 @@ swiftmailer:
     spool:     { type: memory }
 
 fs_solr:
-  endpoints:
-    default:
-      host: localhost
-      port: 8983
-      path: /solr/
-      core: collection-symfony-1
-      timeout: 5
-  clients:
-    default:
-      endpoints: [default]
+    endpoints:
+        default:
+            host: localhost
+            port: 8983
+            path: /solr/
+            core: collection-symfony-1
+            timeout: 5
+    clients:
+        default:
+            endpoints: [default]
+
+nelmio_solarium:
+    endpoints:
+        default:
+            host: localhost
+            port: 8983
+            path: /solr/
+            core: collection-symfony-1
+            timeout: 5
+    clients:
+        default:
+            endpoints: [default]

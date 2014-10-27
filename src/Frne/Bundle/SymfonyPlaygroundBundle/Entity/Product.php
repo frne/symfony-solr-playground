@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use FS\SolrBundle\Doctrine\Annotation as Solr;
 
 /**
- * @ORM\Entity(repositoryClass="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Doctrine\ArticleRepository")
- * @ORM\Table(name="article")
+ * @ORM\Entity
+ * @ORM\Table(name="product")
  *
- * @Solr\Document(repository="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ArticleRepository")
+ * @Solr\Document(repository="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ProductRepository")
  */
-class Article
+class Product
 {
     /**
      * @var int
@@ -43,13 +43,10 @@ class Article
     protected $content;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=100)
-     *
-     * @Solr\Field(type="string")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    protected $author;
+    protected $category;
 
     /**
      * Get id
@@ -65,7 +62,7 @@ class Article
      * Set title
      *
      * @param string $title
-     * @return Article
+     * @return Product
      */
     public function setTitle($title)
     {
@@ -88,7 +85,7 @@ class Article
      * Set content
      *
      * @param string $content
-     * @return Article
+     * @return Product
      */
     public function setContent($content)
     {
@@ -108,25 +105,25 @@ class Article
     }
 
     /**
-     * Set author
+     * Set category
      *
-     * @param string $author
-     * @return Article
+     * @param Category $category
+     * @return Product
      */
-    public function setAuthor($author)
+    public function setCategory(Category $category = null)
     {
-        $this->author = $author;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get author
+     * Get category
      *
-     * @return string 
+     * @return Category
      */
-    public function getAuthor()
+    public function getCategory()
     {
-        return $this->author;
+        return $this->category;
     }
 }

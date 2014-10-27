@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1>Search
+                    <small>with Object-Hydration</small>
+                </h1>
+            </div>
+
+            <form class="form-inline" role="form" method="get" action="{{ url('search_hydration') }}">
+                <div class="form-group">
+                    <input type="text"
+                           name="q"
+                           class="form-control"
+                           placeholder="Search"
+                           {% if query %}value="{{ query }}"{% endif %}>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% if result %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Solr&nbsp;
+                    <span class="label label-success">
+                        <span class="glyphicon glyphicon-time"></span>
+                        &nbsp{{ timing.solr.duration }}&nbsp;ms
+                    </span>
+                </h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Title</td>
+                        <td>Category</td>
+                        <td>Content</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in result.solr %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.content }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

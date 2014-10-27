@@ -21,6 +21,7 @@ class AppKernel extends Kernel
 
             new FS\SolrBundle\FSSolrBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Nelmio\SolariumBundle\NelmioSolariumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
