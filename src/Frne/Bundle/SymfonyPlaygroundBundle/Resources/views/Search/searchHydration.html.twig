@@ -23,11 +23,39 @@
     </div>
     {% if result %}
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <h3>Solr&nbsp;
                     <span class="label label-success">
                         <span class="glyphicon glyphicon-time"></span>
                         &nbsp{{ timing.solr.duration }}&nbsp;ms
+                    </span>
+                </h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Title</td>
+                        <td>Category</td>
+                        <td>Content</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in result.solr %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.content }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <h3>MySQL&nbsp;
+                    <span class="label label-success">
+                        <span class="glyphicon glyphicon-time"></span>
+                        &nbsp{{ timing.mysql.duration }}&nbsp;ms
                     </span>
                 </h3>
                 <table class="table table-striped">

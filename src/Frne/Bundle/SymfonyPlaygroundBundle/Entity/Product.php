@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use FS\SolrBundle\Doctrine\Annotation as Solr;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Doctrine\ProductRepository")
  * @ORM\Table(name="product")
  *
  * @Solr\Document(repository="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ProductRepository")

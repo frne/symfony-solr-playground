@@ -28,7 +28,8 @@ class ArticleRepository implements FulltextSearchRepositoryInterface
         $select = $this->solr->createSelect();
         $select->setQuery(
             sprintf(
-                '(id:%s OR title_s:*%s* OR author_s:*%s*) AND document_name_s:article',
+                '(id:%s OR title_s:*%s* OR author_s:*%s* OR content_t:*%s*) AND document_name_s:article',
+                $search,
                 $search,
                 $search,
                 $search

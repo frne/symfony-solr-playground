@@ -12,6 +12,13 @@
             <argument>FrneSymfonyPlaygroundBundle:Article</argument>
         </service>
 
+        <service id="doctrine.repository.product"
+                 class="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Doctrine\ProductRepository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository">
+            <argument>FrneSymfonyPlaygroundBundle:Product</argument>
+        </service>
+
         <service id="solr.repository.article"
                  class="Frne\Bundle\SymfonyPlaygroundBundle\Entity\Repository\Solr\ArticleRepository">
             <argument type="service" id="solarium.client.default"/>
@@ -24,5 +31,5 @@
             <argument>FrneSymfonyPlaygroundBundle:Product</argument>
         </service>
     </services>
-
+    
 </container>
