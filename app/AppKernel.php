@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new Frne\Bundle\SymfonyPlaygroundBundle\FrneSymfonyPlaygroundBundle(),
+            new Frne\Bundle\SolrSearchBundle\FrneSolrSearchBundle(),
 
             new FS\SolrBundle\FSSolrBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),

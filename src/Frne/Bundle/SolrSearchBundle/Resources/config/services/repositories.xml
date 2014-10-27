@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="doctrine.repository.article"
+                 class="Frne\Bundle\SolrSearchBundle\Entity\Repository\Doctrine\ArticleRepository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository">
+            <argument>FrneSolrSearchBundle:Article</argument>
+        </service>
+
+        <service id="doctrine.repository.product"
+                 class="Frne\Bundle\SolrSearchBundle\Entity\Repository\Doctrine\ProductRepository"
+                 factory-service="doctrine.orm.entity_manager"
+                 factory-method="getRepository">
+            <argument>FrneSolrSearchBundle:Product</argument>
+        </service>
+
+        <service id="solr.repository.article"
+                 class="Frne\Bundle\SolrSearchBundle\Entity\Repository\Solr\ArticleRepository">
+            <argument type="service" id="solarium.client.default"/>
+        </service>
+
+        <service id="solr.repository.product"
+                 class="Frne\Bundle\SolrSearchBundle\Entity\Repository\Solr\ProductRepository"
+                 factory-service="solr.client.default"
+                 factory-method="getRepository">
+            <argument>FrneSolrSearchBundle:Product</argument>
+        </service>
+    </services>
+
+</container>
