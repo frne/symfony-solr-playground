@@ -8,6 +8,8 @@ use FS\SolrBundle\Repository\Repository;
 use FS\SolrBundle\Doctrine\Hydration\HydrationModes;
 use FS\SolrBundle\Solr;
 use Frne\Bundle\SolrSearchBundle\Entity\Product;
+use SPF\SolrQueryBuilder\Query\QueryInterface;
+use SPF\SolrQueryBuilder\QueryBuilder;
 
 class ProductRepository extends Repository implements FulltextSearchRepositoryInterface
 {
@@ -43,17 +45,18 @@ class ProductRepository extends Repository implements FulltextSearchRepositoryIn
     {
         $this->hydrationMode = HydrationModes::HYDRATE_DOCTRINE;
 
-        $query = new RawQuery();
+        $qb = new QueryBuilder(QueryBuilder::VERSION_4);
+        $query = $qb->select()
+            ->nest()
+                ->where('id', $search)
+                ->orWhere('title_s', $search, QueryInterface::WILDCARD_SURROUNDED)
+                ->orWhere('content_t', $search, QueryInterface::WILDCARD_SURROUNDED)
+            ->endNest()
+            ->andWhere('document_name_s', 'product')
+            ->getQueryString();
 
-        $query->setQuery(
-            sprintf(
-                '(id:*%s* OR title_s:*%s* OR content_t:*%s*) AND document_name_s:product',
-                $search,
-                $search,
-                $search,
-                $search
-            )
-        );
+        $query = new RawQuery($query);
+
         $query->setEntity(new Product());
         $query->setRows($limit);
         $query->setStart($offset);

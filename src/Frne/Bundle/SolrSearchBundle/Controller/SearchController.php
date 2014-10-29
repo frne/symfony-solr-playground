@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class SearchController
+class SearchController extends RepositoryAwareController
 {
     const PARAM_QUERY = 'q';
 
@@ -18,52 +18,6 @@ class SearchController
     const PARAM_LIMIT_DEFAULT = 10;
 
     const PARAM_OFFSET_DEFAULT = 0;
-
-    /**
-     * @var FulltextSearchRepositoryInterface
-     */
-    private $doctrineArticleRepository;
-
-    /**
-     * @var FulltextSearchRepositoryInterface
-     */
-    private $doctrineProductRepository;
-
-    /**
-     * @var FulltextSearchRepositoryInterface
-     */
-    private $solrArticleRepository;
-
-    /**
-     * @var FulltextSearchRepositoryInterface
-     */
-    private $solrProductRepository;
-
-    /**
-     * @var Stopwatch
-     */
-    private $stopwatch;
-
-    /**
-     * @param FulltextSearchRepositoryInterface $doctrineArticleRepository
-     * @param FulltextSearchRepositoryInterface $doctrineProductRepository
-     * @param FulltextSearchRepositoryInterface $solrArticleRepository
-     * @param FulltextSearchRepositoryInterface $solrProductRepository
-     * @param Stopwatch $stopwatch
-     */
-    public function __construct(
-        FulltextSearchRepositoryInterface $doctrineArticleRepository,
-        FulltextSearchRepositoryInterface $doctrineProductRepository,
-        FulltextSearchRepositoryInterface $solrArticleRepository,
-        FulltextSearchRepositoryInterface $solrProductRepository,
-        Stopwatch $stopwatch
-    ) {
-        $this->doctrineArticleRepository = $doctrineArticleRepository;
-        $this->doctrineProductRepository = $doctrineProductRepository;
-        $this->solrArticleRepository = $solrArticleRepository;
-        $this->solrProductRepository = $solrProductRepository;
-        $this->stopwatch = $stopwatch;
-    }
 
     /**
      * @Template()

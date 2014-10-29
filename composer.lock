@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3aecfefabe7e60566b81c82913a670fb",
+    "hash": "2bad93b043465fc41fb72643021f66a2",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1418,6 +1418,53 @@
                 "mailer"
             ],
             "time": "2014-10-04 05:53:18"
+        },
+        {
+            "name": "swiss-php-friends/solr-query-builder",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiss-php-friends/solr-query-builder.git",
+                "reference": "cb8eb32b6b53dbf497b79759ff6b97c4122ffa1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiss-php-friends/solr-query-builder/zipball/cb8eb32b6b53dbf497b79759ff6b97c4122ffa1e",
+                "reference": "cb8eb32b6b53dbf497b79759ff6b97c4122ffa1e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "evert/phpdoc-md": "~0.0.7",
+                "phpdocumentor/phpdocumentor": "2.7.1",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SPF\\SolrQueryBuilder\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Neff",
+                    "email": "fneff89@gmail.com"
+                }
+            ],
+            "description": "Common library to build Apache Solr queries",
+            "homepage": "http://github.com/swiss-php-friends/solr-query-builder",
+            "keywords": [
+                "builder",
+                "query",
+                "solr"
+            ],
+            "time": "2014-10-29 08:13:46"
         },
         {
             "name": "symfony/assetic-bundle",

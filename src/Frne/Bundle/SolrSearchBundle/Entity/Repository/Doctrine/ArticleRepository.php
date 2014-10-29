@@ -18,6 +18,7 @@ class ArticleRepository extends EntityRepository implements FulltextSearchReposi
             ->orWhere('a.author LIKE :query')
             ->orWhere('a.content LIKE :query')
             ->setParameter('query', '%' . $search . '%')
+            ->orderBy('a.title', 'ASC')
             ->setMaxResults($limit)
             ->setFirstResult($offset)
             ->getQuery()
