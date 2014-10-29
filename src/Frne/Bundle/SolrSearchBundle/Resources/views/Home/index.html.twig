@@ -2,14 +2,25 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" style="padding-top: 50px;">
             <div class="jumbotron">
-                <h1>Symfony / Solr Playground
-                    <small>Symfony Live Berlin 2014</small>
-                </h1>
-                <p>...</p>
+                <h1>Demo Slor Playground</h1>
 
-                <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+                <h2>Symfony Live Berlin 2014</h2>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <a class="btn btn-primary btn-lg" href="{{ url('search_index') }}">Fulltext Search</a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a class="btn btn-primary btn-lg" href="{{ url('search_hydration') }}">Object-Hydration</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
