@@ -3,27 +3,28 @@
 namespace Frne\Bundle\SolrSearchBundle\Controller;
 
 use Frne\Bundle\SolrSearchBundle\Entity\Repository\FulltextSearchRepositoryInterface;
+use Frne\Bundle\SolrSearchBundle\Entity\Repository\SortableListRepositoryInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 abstract class RepositoryAwareController
 {
     /**
-     * @var FulltextSearchRepositoryInterface
+     * @var FulltextSearchRepositoryInterface|SortableListRepositoryInterface
      */
     protected $doctrineArticleRepository;
 
     /**
-     * @var FulltextSearchRepositoryInterface
+     * @var FulltextSearchRepositoryInterface|SortableListRepositoryInterface
      */
     protected $doctrineProductRepository;
 
     /**
-     * @var FulltextSearchRepositoryInterface
+     * @var FulltextSearchRepositoryInterface|SortableListRepositoryInterface
      */
     protected $solrArticleRepository;
 
     /**
-     * @var FulltextSearchRepositoryInterface
+     * @var FulltextSearchRepositoryInterface|SortableListRepositoryInterface
      */
     protected $solrProductRepository;
 

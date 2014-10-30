@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1>List
+                    <small>Articles</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    {% if result %}
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>MySQL&nbsp;
+                    <span class="label label-success">
+                        <span class="glyphicon glyphicon-time"></span>
+                        &nbsp{{ timing.mysql.duration }}&nbsp;ms
+                    </span>
+                </h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Title</td>
+                        <td>Author</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in result.mysql %}
+                        <tr>
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.author }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6    ">
+                <h3>Solr&nbsp;
+                    <span class="label label-success">
+                        <span class="glyphicon glyphicon-time"></span>
+                        &nbsp{{ timing.solr.duration }}&nbsp;ms
+                    </span>
+                </h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Title</td>
+                        <td>Author</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for article in result.solr %}
+                        <tr>
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.title_s }}</td>
+                            <td>{{ article.author_s }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

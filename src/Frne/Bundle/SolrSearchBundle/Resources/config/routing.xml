@@ -13,4 +13,7 @@
     <route id="search_hydration" path="/search/hydration">
         <default key="_controller">controller.search:searchHydrationAction</default>
     </route>
+    <route id="article_list" path="/articles/list/{sortBy}">
+        <default key="_controller">controller.article:listAction</default>
+    </route>
 </routes>

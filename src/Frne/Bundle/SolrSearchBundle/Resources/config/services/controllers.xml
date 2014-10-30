@@ -16,5 +16,12 @@
             <argument type="service" id="debug.stopwatch"/>
         </service>
 
+        <service id="controller.article" class="Frne\Bundle\SolrSearchBundle\Controller\ArticleController">
+            <argument type="service" id="doctrine.repository.article"/>
+            <argument type="service" id="doctrine.repository.product"/>
+            <argument type="service" id="solr.repository.article"/>
+            <argument type="service" id="solr.repository.product"/>
+            <argument type="service" id="debug.stopwatch"/>
+        </service>
     </services>
 </container>
